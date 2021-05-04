@@ -1,5 +1,5 @@
 import random
-from words import words
+from words_file import words
 import string
 
 def get_valid_word(words):
@@ -20,7 +20,10 @@ def hangman():
     #getting user input
     while len(word_letters) > 0 and lives > 0:
         # letters used
-        print('You have ' , lives, 'lives left and have used these letters: ', ' '.join(used_letters))
+        if lives > 1:
+            print('You have ' , lives, 'lives left and have used these letters: ', ' '.join(used_letters))
+        else:
+            print('Watch out! You have 1 life left and have used these letters: ', ' '.join(used_letters))
         
         # current correct letters
         word_list = [letter if letter in used_letters else '-' for letter in word]
